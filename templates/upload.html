@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content%}
+<div class="bg-light p-5 rounded-lg my-3">
+    <h1 class="display-3">Easy as one two three</h1>
+    <p class="lead">Conversion en toute simplicité d'un fichier de profil LIDAR extrait du SITN en un script de
+        points pour AutoCAD.</p>
+    <hr class="my-4">
+    <p>Créer une base de profil de terrain en quelques clics.</p>
+    <a class="btn btn-primary btn-lg" href="/help" role="button">Aide</a>
+</div>
+<h1>Téléchargement fichier LIDAR</h1>
+{% include 'includes/_messages.html' %}
+<form method=post enctype=multipart/form-data>
+    <input type=file name=file>
+    <input type=submit value=Upload>
+    <p>Fichier csv max 5 Mb</p>
+</form>
+
+{% endblock content %}
