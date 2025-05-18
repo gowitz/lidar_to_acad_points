@@ -3,23 +3,40 @@
 <div class="bg-light p-5 rounded-lg my-3">
     <h1 class="display-4">Aide</h1>
     <h2>Intoduction</h2>
-    <p>Cette application convertit un fichier de profil LIDAR exporté du site sitn.ne.ch en un script AutoCAD.</p>
-    <h2>Création fichier source</h2>
+    <p>Cette application convertit des fichiers de profil et profil LIDAR exportés du site sitn.ne.ch en un script AutoCAD.</p>
+    <h2>Création fichier source avec l'outil profil Lidar</h2>
     <p>Ouvrir le site du <a href="http://sitn.ne.ch" target="_blank">SITN</a> dans un navigateur internet. Zoomer sur la
         zone à mesurer. A l'aide de l'outils "Profil LIDAR" tracer une ligne de profil.</p>
-    <img src="{{url_for('static', filename='img/icon_lidar.png')}}">
+    <img src="{{url_for('static', filename='img/icon_sitn_button_lidar.png')}}">
     <p>Si l'outil de dessin n'est pas actif, cliquer sur le bouton "Dessiner un profil LIDAR".
+    </p>
+    <img src="{{url_for('static', filename='img/dessin_profil_lidar.png')}}">
+    <p>Faire un double clic pour terminer le tracé du profil. Ensuite exporter le fichier au format CSV.</p>
+    <img src="{{url_for('static', filename='img/export_lidar.png')}}">
+    <h2>Convertion en script AutoCAD</h2>
+    <p>Lors de l'importation du fichier CSV à convertir il est possible de cocher la case MNT afin de ne pas tenir compte des points classifiés comme de la végétation
+        , des mâts ou des lignes de contacts et divers objets.</p>
+    <img src="{{url_for('static', filename='img/upload_lidar.png')}}">
+        <p>Le script résultat est une suite de commande AutoCAD qui dessinera un objet point pour chaque point du nuage Lidar.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, totam itaque perspiciatis magnam id dolorum?
+        Est,
+        nisi eos. Amet ipsa suscipit explicabo voluptatum enim illo, debitis culpa vitae velit cum!</p>
+    <h2>Création fichier source avec l'outil profil</h2>
+    <p>Ouvrir le site du <a href="http://sitn.ne.ch" target="_blank">SITN</a> dans un navigateur internet. Zoomer sur la
+        zone à mesurer. A l'aide de l'outils "Profil" tracer une ligne de profil.</p>
+    <img src="{{url_for('static', filename='img/icon_sitn_button_profil.png')}}">
+    <p>Si l'outil de dessin n'est pas actif, cliquer sur le bouton "Dessiner une ligne de profil".
     </p>
     <img src="{{url_for('static', filename='img/dessin_profil.png')}}">
     <p>Faire un double clic pour terminer le tracé du profil. Ensuite exporter le fichier au format CSV.</p>
-    <img src="{{url_for('static', filename='img/export.png')}}">
+    <img src="{{url_for('static', filename='img/export_profil.png')}}">
     <h2>Convertion en script AutoCAD</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, totam itaque perspiciatis magnam id dolorum?
+    <p>Lors de l'importation du fichier CSV à convertir il est possible de cocher la case MNT afin de ne pas tenir compte du MNS.</p>
+    <img src="{{url_for('static', filename='img/upload_profil.png')}}">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, totam itaque perspiciatis magnam id dolorum?
         Est,
         nisi eos. Amet ipsa suscipit explicabo voluptatum enim illo, debitis culpa vitae velit cum!</p>
     <h2>Charger dans AutoCAD</h2>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat laborum tempora vel ipsum exercitationem,
-        dolorem
-        odit ad commodi sapiente omnis, quibusdam maxime aperiam velit autem debitis enim optio accusantium sequi.</p>
+    <p>Le chargement du fichier script se fait à l'aide de la commande <i>script</i> dans AutoCAD.</p>
 </div>
 {% endblock content %}

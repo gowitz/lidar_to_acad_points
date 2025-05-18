@@ -23,7 +23,7 @@ def allowed_file(filename):
 @app.route('/')
 @app.route('/home')
 def upload_form():
-    return render_template('upload.html')
+    return render_template('home.html')
 
 @app.route('/', methods=['POST'])
 @app.route('/home', methods=['POST'])
@@ -85,6 +85,14 @@ def download_file(export_filename):
 def return_files_tut(export_filename):
     file_path = os.path.join(app.config['DOWNLOAD_FOLDER'], export_filename)
     return send_file(file_path, as_attachment=True, download_name='')
+
+@ app.route('/lidar')
+def lidar():
+    return render_template('upload_lidar.html')
+
+@ app.route('/profil')
+def profil():
+    return render_template('upload_profil.html')
 
 @ app.route('/help')
 def about():
