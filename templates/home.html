@@ -3,11 +3,37 @@
 
 <h1>Home page</h1>
 <div class="bg-light p-5 rounded-lg my-3">
-    <h1 class="display-3">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-        to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-primary btn-lg" href="/about" role="button">Learn more</a>
+    <div class="row">
+    <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="card">
+        <div class="card-body">
+            <a href="/lidar" class="stretched-link"><img src="{{url_for('static', filename='img/icon_lidar.png')}}" class="card-img-top" alt="Profil Lidar"></a>
+            <div class="card-body">
+                <p class="card-text">Convertir un profil Lidar.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+        <div class="card-body">
+            <a href="/profil" class="stretched-link"><img src="{{url_for('static', filename='img/icon_DSM.png')}}" class="card-img-top" alt="Profil Lidar"></a>
+            <div class="card-body">
+                    <p class="card-text">Convertir une ligne de profil.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+        <div class="col-sm-4">
+        <div class="card">
+        <div class="card-body">
+            <a href="/profil" class="stretched-link"><img src="{{url_for('static', filename='img/icon_dxf2kml.png')}}" class="card-img-top" alt="Profil Lidar"></a>
+            <div class="card-body">
+                    <p class="card-text">Reprojeter un DXF en KML.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
 </div>
 {% endblock content %}
