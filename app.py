@@ -6,7 +6,7 @@ import pandas as pd
 UPLOAD_FOLDER = 'uploads'
 DOWNLOAD_FOLDER = 'downloads'
 EXPORT_FILENAME = 'points.scr'
-ALLOWED_EXTENSIONS = {'csv'}
+ALLOWED_EXTENSIONS = ['csv','txt','dxf']
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -93,6 +93,14 @@ def lidar():
 @ app.route('/profil')
 def profil():
     return render_template('upload_profil.html')
+
+@ app.route('/dxf2kml')
+def dxf2kml():
+    return render_template('upload_dxf2kml.html')
+
+@ app.route('/vc_lidar')
+def vc_lidar():
+    return render_template('upload_vc_lidar.html')
 
 @ app.route('/help')
 def about():

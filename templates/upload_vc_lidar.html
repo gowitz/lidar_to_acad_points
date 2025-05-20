@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content%}
+<h1>Téléchargement fichier LiDAR</h1>
+{% include 'includes/_messages.html' %}
+<form method=post enctype=multipart/form-data>
+    <input type=file name=file><br />
+    <p>Fichier csv max 5 Mb</p>
+    <input type="checkbox" id="mnt" name="mnt" value="mnt">
+    <label for="mnt">MNT (sans végétation, voitures, pylônes, etc)</label><br />
+    <input type=submit value=Upload>
+    
+</form>
+
+{% endblock content %}

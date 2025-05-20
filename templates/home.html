@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 {% block content%}
 
-<h1>Home page</h1>
+<h1>Tools</h1>
 <div class="bg-light p-5 rounded-lg my-3">
-    <div class="row">
-    <div class="col-sm-4 mb-3 mb-sm-0">
-        <div class="card">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="col">
+        <div class="card" style="height: 250px;">
         <div class="card-body">
             <a href="/lidar" class="stretched-link"><img src="{{url_for('static', filename='img/icon_lidar.png')}}" class="card-img-top" alt="Profil Lidar"></a>
             <div class="card-body">
@@ -14,22 +14,32 @@
         </div>
         </div>
     </div>
-    <div class="col-sm-4">
-        <div class="card">
+    <div class="col">
+        <div class="card" style="height: 250px;">
         <div class="card-body">
             <a href="/profil" class="stretched-link"><img src="{{url_for('static', filename='img/icon_DSM.png')}}" class="card-img-top" alt="Profil Lidar"></a>
             <div class="card-body">
-                    <p class="card-text">Convertir une ligne de profil.</p>
+                <p class="card-text">Convertir une ligne de profil.</p>
+            </div>
+        </div>
+        </div>
+        </div>
+    <div class="col">
+        <div class="card" style="height: 250px;">
+        <div class="card-body">
+            <a href="/dxf2kml" class="stretched-link"><img src="{{url_for('static', filename='img/icon_dxf2kml.png')}}" class="card-img-top" alt="Profil Lidar"></a>
+            <div class="card-body">
+                <p class="card-text">Reprojeter un DXF en KML.</p>
             </div>
         </div>
         </div>
     </div>
-        <div class="col-sm-4">
-        <div class="card">
+    <div class="col">
+        <div class="card" style="height: 250px;">
         <div class="card-body">
-            <a href="/profil" class="stretched-link"><img src="{{url_for('static', filename='img/icon_dxf2kml.png')}}" class="card-img-top" alt="Profil Lidar"></a>
+            <a href="/vc_lidar" class="stretched-link"><img src="{{url_for('static', filename='img/icon_VC_LiDAR_2022.png')}}" class="card-img-top" alt="Profil Lidar Virtual City 2022"></a>
             <div class="card-body">
-                    <p class="card-text">Reprojeter un DXF en KML.</p>
+                <p class="card-text">Convertir profil Virtual City neLiDAR.</p>
             </div>
         </div>
         </div>
