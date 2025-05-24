@@ -14,6 +14,7 @@
 
     <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"> -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='custom.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Lidar to points V2.0 beta</title>
 </head>
@@ -56,7 +57,6 @@
             <h1 class="display-3">Easy as one two three</h1>
             <p class="lead">Une boite à outils pour la conversion en toute simplicité de fichiers extraits ou à destination du géoportail SITN, comme par exemple la conversion d'un fichier de profil LiDAR ou MNT/MNS en un script pour AutoCAD.</p>
             <hr class="my-4">
-            <p>Créer une base de profil de terrain en quelques clics.</p>
             <a class="btn btn-primary btn-lg" href="/help" role="button">Aide</a>
         </div>
         {% block content %}{% endblock %}

@@ -1,129 +1,133 @@
 [
-{"classification_code":"0",
-"label":"never classified",
-"label_fr":"Jamais classé",
-"color":""},
-
-{"classification_code":"1",
-"label":"unclassified",
-"label_fr":"Non attribuée",
-"color":"rgb(128,128,128)"},
-
-{"classification_code":"2",
-"label":"ground",
-"label_fr":"Sol",
-"color":"rgb(153,76,51)"},
-
-{"classification_code":"3",
-"label":"low vegetation",
-"label_fr":"Végétation basse",
-"color":"rgb(0,255,0)"},
-
-{"classification_code":"4",
-"label":"medium vegetation",
-"label_fr":"Moyenne végétation",
-"color":"rgb(0,204,0)"},
-
-{"classification_code":"5",
-"label":"high vegetation",
-"label_fr":"Haute végétation",
-"color":"rgb(0,153,0)"},
-
-{"classification_code":"6",
-"label":"roofs",
-"label_fr":"Bâtiment (toits)",
-"color":"rgb(255,153,0)"},
-
-{"classification_code":"7",
-"label":"low point(noise)",
-"label_fr":"Point bas",
-"color":"rgb(255,0,255)"},
-
-{"classification_code":"",
-"label":"key-point",
-"label_fr":"",
-"color":"rgb(128,51,25)"},
-
-{"classification_code":"9",
-"label":"water",
-"label_fr":"Eau",
-"color":"rgb(0,0,255)"},
-
-{"classification_code":"14",
-"label":"wires",
-"label_fr":"Conducteur métallique (Phase)",
-"color":"rgb(255,255,0)"},
-
-{"classification_code":"15",
-"label":"transmission towers",
-"label_fr":"Tour de transmission",
-"color":"rgb(255,255,0)"},
-
-{"classification_code":"17",
-"label":"bridge deck",
-"label":"Tablier de pont",
-"color":"rgb(255,153,77)"},
-
-{"classification_code":"18",
-"label":"high noise",
-"label_fr":"",
-"color":"rgb(25,255,76)"},
-
-{"classification_code":"19",
-"label":"road poles",
-"label_fr":"",
-"color":"rgb(128,153,77)"},
-
-{"classification_code":"21",
-"label":"cars",
-"label_fr":"",
-"color":"rgb(255,0,51)"},
-
-{"classification_code":"22",
-"label":"building facades",
-"label_fr":"Bâtiment (façadas)",
-"color":"rgb(179,179,179)"},
-
-{"classification_code":"",
-"label":"low voltage wire",
-"label_fr":"",
-"color":"rgb(102,204,204)"},
-
-{"classification_code":"25",
-"label":"high voltage wire",
-"label_fr":"",
-"color":"rgb(255,255,0)"},
-
-{"classification_code":"26",
-"label":"railroad wire",
-"label_fr":"",
-"color":"rgb(179,178,0)"},
-
-{"classification_code":"",
-"label":"low voltage tower",
-"color":"rgb(179,51,77)"},
-
-{"classification_code":"",
-"label":"high voltage tower",
-"color":"rgb(51,179,102)"},
-
-{"classification_code":"29",
-"label":"railroad tower",
-"label_fr":"",
-"color":"rgb(77,51,51)"},
-
-{"classification_code":"",
-"label":"fences",
-"label_fr":"",
-"color":"rgb(128,255,0)"},
-
-{"classification_code":"31",
-"label":"ground densified",
-"label_fr":"",
-"color":"rgb(128,51,204)"},
-
-{"classification_code":"11",
-"label":"Other",
-"label_fr":"",
-"color":"rgb(128,128,128)"}
+  {
+    "classification_code": "0",
+    "label": "never classified",
+    "label_fr": "Jamais classé",
+    "color": "rgb(128,128,128)"
+  },
+  {
+    "classification_code": "1",
+    "label": "unclassified",
+    "label_fr": "Non attribuée",
+    "color": "rgb(128,128,128)"
+  },
+  {
+    "classification_code": "2",
+    "label": "ground",
+    "label_fr": "Sol",
+    "color": "rgb(153,76,51)"
+  },
+  {
+    "classification_code": "3",
+    "label": "low vegetation",
+    "label_fr": "Végétation basse",
+    "color": "rgb(0,255,0)"
+  },
+  {
+    "classification_code": "4",
+    "label": "medium vegetation",
+    "label_fr": "Moyenne végétation",
+    "color": "rgb(0,204,0)"
+  },
+  {
+    "classification_code": "5",
+    "label": "high vegetation",
+    "label_fr": "Haute végétation",
+    "color": "rgb(0,153,0)"
+  },
+  {
+    "classification_code": "6",
+    "label": "roofs",
+    "label_fr": "Bâtiment (toits)",
+    "color": "rgb(255,153,0)"
+  },
+  {
+    "classification_code": "7",
+    "label": "low point(noise)",
+    "label_fr": "Point bas",
+    "color": "rgb(255,0,255)"
+  },
+  {
+    "classification_code": "9",
+    "label": "water",
+    "label_fr": "Eau",
+    "color": "rgb(0,0,255)"
+  },
+  {
+    "classification_code": "14",
+    "label": "wires",
+    "label_fr": "Conducteur métallique (Phase)",
+    "color": "rgb(255,255,0)"
+  },
+  {
+    "classification_code": "15",
+    "label": "transmission towers",
+    "label_fr": "Tour de transmission",
+    "color": "rgb(255,255,0)"
+  },
+  {
+    "classification_code": "17",
+    "label": "Tablier de pont",
+    "color": "rgb(255,153,77)"
+  },
+  {
+    "classification_code": "18",
+    "label": "high noise",
+    "label_fr": "",
+    "color": "rgb(25,255,76)"
+  },
+  {
+    "classification_code": "19",
+    "label": "road poles",
+    "label_fr": "",
+    "color": "rgb(128,153,77)"
+  },
+  {
+    "classification_code": "21",
+    "label": "cars",
+    "label_fr": "",
+    "color": "rgb(255,0,51)"
+  },
+  {
+    "classification_code": "22",
+    "label": "building facades",
+    "label_fr": "Bâtiment (façadas)",
+    "color": "rgb(179,179,179)"
+  },
+  {
+    "classification_code": "25",
+    "label": "high voltage wire",
+    "label_fr": "",
+    "color": "rgb(255,255,0)"
+  },
+  {
+    "classification_code": "26",
+    "label": "railroad wire",
+    "label_fr": "",
+    "color": "rgb(179,178,0)"
+  },
+  {
+    "classification_code": "29",
+    "label": "railroad tower",
+    "label_fr": "",
+    "color": "rgb(77,51,51)"
+  },
+  {
+    "classification_code": "31",
+    "label": "ground densified",
+    "label_fr": "",
+    "color": "rgb(128,51,204)"
+  },
+  {
+    "classification_code": "11",
+    "label": "Other",
+    "label_fr": "",
+    "color": "rgb(128,128,128)"
+  },
+  {
+    "classification_code": "41",
+    "label": "water",
+    "label_fr": "Eau",
+    "color": "rgb(0,0,255)"
+  }
 ]

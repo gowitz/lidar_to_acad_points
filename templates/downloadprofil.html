@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content%}
+<div class="bg-light p-5 rounded-lg my-3">
+    <h1>Téléchargement fichier script</h1>
+    {% include 'includes/_messages.html' %}
+    <a href="/return-files/{{value}}" target="blank"><button class='btn btn-primary btn-lg'>Download!</button></a> <button data-bs-toggle="collapse" data-bs-target="#profil_image" class='btn btn-primary btn-lg'><i class='fa fa-eye'></i></button>
+    <div class="mt-2">
+        <div id="profil_image" class="collapse">
+            <img src="/static/img_export/{{img}}" alt="Profil">
+        </div>
+    </div>
+</div>
+{% endblock content %}

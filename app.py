@@ -2,11 +2,19 @@ import os.path
 from flask import Flask, flash, request, redirect, url_for, render_template, send_file
 from werkzeug.utils import secure_filename
 import pandas as pd
+from bokeh.plotting import figure
+from bokeh.embed import components
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from io import BytesIO
 
 UPLOAD_FOLDER = 'uploads'
 DOWNLOAD_FOLDER = 'downloads'
 EXPORT_FILENAME = 'points.scr'
 ALLOWED_EXTENSIONS = ['csv','txt','dxf']
+LIDAR_CLASSIFICATION_IGNORE = [4,5,6]
+MNT_ONLY_DEFAULT = False
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -69,80 +77,113 @@ def write_points(export_filename, gb):
             # write line to create a point for each row
             for index, row in g[1].iterrows() :
                 file.write('point ' + str(row['x']) + ',' + str(row['y']) + "\r")
+    file.close()
 
+def write_lines(export_filename, df, mnt):
+    with open(os.path.join(app.config['DOWNLOAD_FOLDER'], export_filename), 'w') as file:
+        file.write("_-layer E _AJS_100_E_profil_mnt_T\r")
+        for index, row in df.iterrows() :
+            file.write(str(row['distance']) + ',' + str(row['mnt']) + '\n')
+        if not mnt:
+            file.write("_-layer E _AJS_100_E_profil_mms_T\r")
+            file.write("_pline\r")
+            for index, row in df.iterrows() :
+                file.write(str(row['distance']) + ',' + str(row['mns']) + '\n')
+    file.close()
+
+
+def plot_lines(export_filename, mnt):
+    filename = export_filename.split(".")[0] + ".csv"
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    plt.clf()
+    df = pd.read_csv(file_path)
+
+    x1 = df['distance']
+    y1 = df['mnt']
+    mnt_only = 'True'
+    if  mnt != mnt_only:
+        x2 = df['distance']
+        y2 = df['mns']
+
+    # Set graph style
+    plt.style.use('default')
+    # Set grid
+    ax = plt.axes()        
+    ax.yaxis.grid()
+    # Set axis labels
+    plt.ylabel('Altitude [m]')
+    plt.xlabel('Distance [m]')
+
+    #plt.scatter(x,y, c='k', s=0.1)
+    plt.plot(x1, y1, c='k', label = "MNT")
+    if mnt != mnt_only:
+        plt.plot(x2, y2, c='g', label = "MNS")
+
+    plt.legend()
+
+    return plt
+
+def plot_points(export_filename, mnt):
+    filename = export_filename.split(".")[0] + ".csv"
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    plt.clf()
+    df = pd.read_csv(file_path)
+    mnt_only = 'True'
+    if  mnt == mnt_only:
+        df = df[~df.classification.isin(LIDAR_CLASSIFICATION_IGNORE)]
+
+    x = df['distance']
+    y = df['altitude']
+
+    # Set graph style
+    plt.style.use('default')
+    # Set grid
+    ax = plt.axes()        
+    ax.yaxis.grid()
+    # Set axis labels
+    plt.ylabel('Altitude [m]')
+    plt.xlabel('Distance [m]')
+
+    #plt.scatter(x,y, c='k', s=0.1)
+    plt.scatter(x,y, c='k', s=0.1)
+
+    return plt
 
 @app.route('/')
 @app.route('/home')
 def home():
     return render_template('home.html')
 
-""" @app.route('/', methods=['POST']) """
-""" @app.route('/home', methods=['POST'])
-def upload_file_home():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part', 'danger')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file', 'danger')
-            return redirect(request.url)
-        if not allowed_file(file.filename):
-            flash('Wrong file type, only .txt or .csv file', 'danger')
-            return redirect(request.url)
-        # If allowed file
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            # if file already exists in upload folder remove it
-            if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], filename)):
-                os.remove(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            # then save the file
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-
-            # create dataframe
-            df = pd.read_csv(os.path.join(
-                app.config['UPLOAD_FOLDER'], filename))
-
-            # if default file already exists in destination folder remove it
-            if os.path.isfile(os.path.join(app.config['DOWNLOAD_FOLDER'], app.config['EXPORT_FILENAME'])):
-                os.remove(os.path.join(
-                    app.config['DOWNLOAD_FOLDER'], app.config['EXPORT_FILENAME']))
-
-            # define destination file with the same name with .src extension
-            export_filename = filename.split(".")[0] + ".scr"
-
-            # if destination file already exists in destination folder remove it
-            if os.path.exists(os.path.join(app.config['DOWNLOAD_FOLDER'], export_filename)):
-                os.remove(os.path.join(app.config['DOWNLOAD_FOLDER'], export_filename))
-
-            # if columns distance, altitude and classification are in dataframe
-            if "distance" in df and "altitude" in df and "classification" in df:
-                # filtre dataframe columns
-                df = df[['distance', 'altitude', 'classification']]
-                with open(os.path.join(app.config['DOWNLOAD_FOLDER'], export_filename), 'a') as the_file:
-                    # group by classification
-                    gb = df.groupby('classification')
-                    for g in gb:
-                        # write line to create layer named by classsification (g[0] = list of unique classification)
-                        the_file.write(("_-layer E " + str(g[0]) + " \r"))
-                        # write line to create a point for each row
-                        for index, row in g[1].iterrows() :
-                            the_file.write('point ' + str(row['distance']) + ',' + str(row['altitude']) + "\r")
-            else:
-                flash('File not well formatted', 'danger')
-                return redirect(request.url)
-
-        return redirect('/downloadfile/' + export_filename)
-
-    return render_template('upload.html') """
-
 @app.route("/downloadfile/<export_filename>", methods=['GET'])
 def download_file(export_filename):
     flash('File ' + export_filename + ' ready to download.', 'success')
     return render_template('download.html', value=export_filename)
+
+
+@app.route("/downloadprofilefile/<export_filename>/<mnt>", methods=['GET'])
+def download_profile_file(export_filename, mnt):
+    flash('File ' + export_filename + ' ready to download.', 'success')
+
+    # Get the matplotlib plot 
+    plot = plot_lines(export_filename, mnt)
+    plot_file_name = export_filename.split(".")[0] + ".png"
+
+    # Save the figure in the static directory 
+    plot.savefig(os.path.join('static', 'img_export', plot_file_name))
+
+    return render_template('downloadprofil.html', value=export_filename, img=plot_file_name)
+
+@app.route("/downloadlidarfile/<export_filename>/<mnt>", methods=['GET'])
+def download_lidar_file(export_filename, mnt):
+    flash('File ' + export_filename + ' ready to download.', 'success')
+    # Get the matplotlib plot 
+    plot = plot_points(export_filename, mnt)
+    plot_file_name = export_filename.split(".")[0] + ".png"
+
+    # Save the figure in the static directory 
+    plot.savefig(os.path.join('static', 'img_export', plot_file_name))
+
+    return render_template('downloadlidar.html', value=export_filename, img=plot_file_name)
 
 @ app.route('/return-files/<export_filename>')
 def return_files_tut(export_filename):
@@ -158,13 +199,21 @@ def upload_lidar():
     if request.method == 'POST':
         filename = upload_file(request)
         export_filename = set_script_file(filename)
-        print(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        mnt_checkbox = request.form.get('mnt')
+
+        if mnt_checkbox == 'mnt':
+            mnt = True
+        else:
+            mnt = MNT_ONLY_DEFAULT
 
          # create dataframe
         df = pd.read_csv(os.path.join(
             app.config['UPLOAD_FOLDER'], filename))
         # if columns distance, altitude and classification are in dataframe
         if "distance" in df and "altitude" in df and "classification" in df:
+            # skip MNS classifications
+            if mnt:
+                df = df[~df.classification.isin(LIDAR_CLASSIFICATION_IGNORE)]
             # filtre dataframe columns
             df = df[['distance', 'altitude', 'classification']]
             df.rename(columns={'distance':'x', 'altitude':'y'}, inplace=True)
@@ -175,14 +224,43 @@ def upload_lidar():
         else:
             flash('File not well formatted', 'danger')
             return redirect(request.url)
-
-        return redirect('/downloadfile/' + export_filename)
+        #return redirect('/downloadlidarfile/' + export_filename + mnt)
+        return redirect(url_for('download_lidar_file', export_filename=export_filename, mnt = str(mnt)))
 
     return render_template('upload_lidar.html')
 
 @ app.route('/profil')
 def profil():
     return render_template('upload_profil.html')
+
+@ app.route('/profil', methods=['POST'])
+def upload_profil():
+    if request.method == 'POST':
+        filename = upload_file(request)
+        export_filename = set_script_file(filename)
+        mnt_checkbox = request.form.get('mnt')
+
+        if mnt_checkbox == 'mnt':
+            mnt = True
+        else:
+            mnt = MNT_ONLY_DEFAULT
+
+         # create dataframe
+        df = pd.read_csv(os.path.join(
+            app.config['UPLOAD_FOLDER'], filename))
+        # if columns distance, altitude and classification are in dataframe
+        if "distance" in df and "mnt" in df and "mns" in df:
+            write_lines(export_filename, df, mnt)
+
+        else:
+            flash('File not well formatted', 'danger')
+            return redirect(request.url)
+
+        #return redirect('/downloadprofilefile/' + export_filename)
+        return redirect(url_for('download_profile_file', export_filename=export_filename, mnt = str(mnt)))
+        
+
+    return render_template('upload_lidar.html')
 
 @ app.route('/dxf2kml')
 def dxf2kml():
@@ -207,7 +285,6 @@ def upload_vc_lidar():
             # filtre dataframe columns
             df = df[[' mileage', ' z', ' classification']]
             df.rename(columns={' mileage':'x', ' z':'y', ' classification':'classification'}, inplace=True)
-            print(df.columns)
             # group by classification
             gb = df.groupby('classification')
             write_points(export_filename, gb)
