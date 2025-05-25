@@ -1,3 +1,6 @@
 # Ignored files
 .DS_Store
 .vscode
+static/img_export/
+downloads/
+uploads/

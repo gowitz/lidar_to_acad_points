@@ -87,13 +87,18 @@ def write_points(export_filename, gb):
 def write_lines(export_filename, df, mnt):
     with open(os.path.join(app.config['DOWNLOAD_FOLDER'], export_filename), 'w') as file:
         file.write("_-layer E _AJS_100_E_profil_mnt_T\r")
+        file.write("\r")
+        file.write("_pline\r")
         for index, row in df.iterrows() :
             file.write(str(row['distance']) + ',' + str(row['mnt']) + '\n')
+        file.write("\r")
         if not mnt:
             file.write("_-layer E _AJS_100_E_profil_mms_T\r")
+            file.write("\r")
             file.write("_pline\r")
             for index, row in df.iterrows() :
                 file.write(str(row['distance']) + ',' + str(row['mns']) + '\n')
+            file.write("\r")
     file.close()
 
 # Plot section ---------------------------------------------------------------- 

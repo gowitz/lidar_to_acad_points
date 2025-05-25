@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="entities" id="entities">
+	<SimpleField name="Layer" type="string"></SimpleField>
+	<SimpleField name="PaperSpace" type="int"></SimpleField>
+	<SimpleField name="SubClasses" type="string"></SimpleField>
+	<SimpleField name="Linetype" type="string"></SimpleField>
+	<SimpleField name="EntityHandle" type="string"></SimpleField>
+	<SimpleField name="Text" type="string"></SimpleField>
+</Schema>
+<Folder><name>entities</name>
+  <Placemark id="entities.1">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">11F8</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.94910039953704,47.001643720099,0 6.94909662039242,47.0016343019329,0 6.94909662039242,47.0016343019329,0 6.9490764832258,47.0015767678836,0 6.94906191787572,47.0015184527051,0 6.94905298732898,47.0014596086503,0 6.94904973019761,47.0014004902592,0 6.94905216055204,47.0013413532573,0 6.9490602678607,47.0012824534499,0 6.94907401703577,47.0012240456157,0 6.94909334858538,47.0011663824041,0 6.94911817887119,47.0011097132431,0 6.95089110281484,46.9974993475408,0 6.95089110281484,46.9974993475408,0 6.95094710789013,46.9973927557542,0 6.95100960147966,46.9972878658163,0 6.9511228184534,46.9971086930728,0 6.9511228184534,46.9971086930728,0 6.9511610724672,46.9970533961973,0 6.95120473170767,46.9970000062205,0 6.95125359420919,46.9969487701028,0 6.95130743393987,46.9968999248407,0 6.95136600184727,46.9968536963715,0 6.95142902701061,46.9968102985273,0 6.95149621789391,46.9967699320468,0 6.95156726369465,46.9967327836464,0 6.95164183578136,46.996699025157,0 6.95171958921368,46.9966688127288,0 6.9518001643378,46.9966422861095,0 6.95188318844992,46.9966195679981,0 6.95196827751999,46.9966007634769,0 6.95196827751999,46.9966007634769,0 6.95219072400542,46.9965613422245,0 6.95241576923887,46.9965295674129,0 6.95264285211505,46.9965055182661,0 6.95281510919154,46.9964902776249,0</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.2">
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">11F9</SimpleData>
+		<SimpleData name="Text">0+000</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>6.94913524375268,47.0016279695473,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="entities.3">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">11FA</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.94908138036458,47.0016472918147,0 6.94911941870696,47.0016401483801,0</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.4">
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">11FB</SimpleData>
+		<SimpleData name="Text">0+025</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>6.94908956510179,47.0014124042962,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="entities.5">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">11FC</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.94903054463633,47.0014224483116,0 6.94906997366002,47.0014216721448,0</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.6">
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">11FD</SimpleData>
+		<SimpleData name="Text">0+050</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>6.94912333684993,47.0011961028503,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="entities.7">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">11FE</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.94906251912761,47.0011958452196,0 6.94910100293422,47.0012017666707,0</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.8">
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">11FF</SimpleData>
+		<SimpleData name="Text">0+075</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>6.94922154171687,47.0009845102229,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="entities.9">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">1200</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.94916108454854,47.0009799805974,0 6.94919847568424,47.0009885747978,0</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.10">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">1201</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.94905572641861,47.0026174295991,0.000000013382677 6.95024725518344,47.0021022277663,0.000000013382677</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.11">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">1202</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.94907810145731,47.0026415378128,0.000000013382686 6.9502665202022,47.0021229845631,0.000000013382686</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.12">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">1203</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.94923514716617,47.0028048581236,0.000000013382749 6.95040176337658,47.0022636272259,0.000000013382749</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.13">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">1204</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.9492617764813,47.0028315848069,0.000000013382759 6.95042466506686,47.0022866120228,0.000000013382759</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.14">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">1205</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.94939894580109,47.0029651689762,0.000000013382814 6.950542768096,47.0024016258346,0.000000013382814</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.15">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">1206</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.94941990520008,47.0029850043782,0.000000013382823 6.95056081415819,47.002418703792,0.000000013382823</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.16">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">1207</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.94948268589183,47.0030435508936,0.000000013382848 6.95061486836579,47.0024691113809,0.000000013382848</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.17">
+	<Style><LineStyle><color>FF9f7fff</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">_AJS_010_-_CONSTRUCTION_T</SimpleData>
+		<SimpleData name="EntityHandle">120B</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.95125345405824,47.0034534592011,0 6.95081828104334,47.0031476375483,0 6.95041439683933,47.0028223499315,0 6.95004365687878,47.0024790911807,0 6.94970776418425,47.0021194386814,0</coordinates></LineString>
+  </Placemark>
+  <Placemark id="entities.18">
+	<Style><LineStyle><color>FF000000</color><width>1</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#entities">
+		<SimpleData name="Layer">0</SimpleData>
+		<SimpleData name="EntityHandle">12B6</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>6.94958973341502,47.001852362198,0 6.95013449214823,47.0019992236533,0 6.95008746451073,47.0020808123432,0 6.95007370962901,47.0020931545247,0 6.95000366411683,47.002156006213,0 6.94996177037424,47.002193597254,0 6.94959178934512,47.0020835010456,0 6.94955743793462,47.0020453646625,0 6.94945361697715,47.00201364508,0 6.94937721443876,47.0020199027656,0 6.94835109833818,47.0017177899096,0 6.94835421708702,47.0017128324896,0 6.94838432402933,47.0016629047817,0 6.94838744277191,47.0016579473608,0 6.94892592488055,47.0018164907815,0 6.94900559331112,47.0017155412421,0 6.94900809193761,47.001712375173,0 6.94904806992153,47.0016617180595,0 6.94905056854302,47.0016585519894,0 6.9490545601019,47.0016534941775,0 6.94915491693513,47.001632726179,0 6.94951220906935,47.0017751612111,0 6.94952645536814,47.0017808404801,0 6.94958973341502,47.001852362198,0</coordinates></LineString>
+  </Placemark>
+</Folder>
+</Document></kml>
