@@ -8,6 +8,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy
+import subprocess
 
 UPLOAD_FOLDER = 'uploads'
 DOWNLOAD_FOLDER = 'downloads'
@@ -29,6 +30,8 @@ def allowed_file_extension(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+def get_file_extension(filename: str) -> str:
+    return filename.rsplit('.', 1)[1].lower()
 
 def upload_file(request):
     if request.method == 'POST':
@@ -43,7 +46,7 @@ def upload_file(request):
             flash('No selected file', 'danger')
             return redirect(request.url)
         if not allowed_file_extension(file.filename):
-            flash('Wrong file type, only .txt or .csv file', 'danger')
+            flash('Wrong file type, only .csv file or .dxf file', 'danger')
             return redirect(request.url)
         filename = secure_filename(file.filename)
         # if file already exists in upload folder remove it
@@ -205,6 +208,11 @@ def download_lidar_file(export_filename, mnt):
 
     return render_template('downloadlidar.html', value=export_filename, img=plot_file_name)
 
+@app.route("/downloaddxf2kml/<export_filename>", methods=['GET'])
+def download_dxf2kml_file(export_filename):
+    flash('File ' + export_filename + ' ready to download.', 'success')
+    return render_template('downloaddxf2kml.html', value=export_filename)
+
 @ app.route('/return-files/<export_filename>')
 def return_files_tut(export_filename):
     file_path = os.path.join(app.config['DOWNLOAD_FOLDER'], export_filename)
@@ -285,6 +293,22 @@ def upload_profil():
 
 @ app.route('/dxf2kml')
 def dxf2kml():
+    return render_template('upload_dxf2kml.html')
+
+@ app.route('/dxf2kml', methods=['POST'])
+def upload_dxf2kml():
+    if request.method == 'POST':
+        filename = upload_file(request)
+        print(filename)
+        if get_file_extension(filename) == 'dxf':
+            export_filename = filename.split(".")[0] + ".kml"
+            input_file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            output_file = os.path.join(app.config['DOWNLOAD_FOLDER'], export_filename)
+            print(output_file)
+            print(input_file)
+            cmd = 'ogr2ogr -f KML -s_srs epsg:2056 -t_srs epsg:4326 ' + output_file + ' ' + input_file
+            subprocess.call(cmd, shell=True)
+        return redirect(url_for('download_dxf2kml_file', export_filename=export_filename))
     return render_template('upload_dxf2kml.html')
 
 @ app.route('/vc_lidar')

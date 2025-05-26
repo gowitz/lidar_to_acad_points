@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content%}
+<div class="bg-light p-5 rounded-lg my-3">
+    <h1>Téléchargement fichier KML</h1>
+    {% include 'includes/_messages.html' %}
+    <a href="/return-files/{{value}}" target="blank"><button class='btn btn-primary btn-lg'>Download!</button></a>
+</div>
+{% endblock content %}
